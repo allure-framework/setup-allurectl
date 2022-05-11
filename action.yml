@@ -1,0 +1,27 @@
+name: 'Setup Allure TestOps'
+description: 'Set up a specific version of the allurectl and add the command-line tools to the PATH'
+author: Artem Eroshhenko <eroshenkoam@me.com>
+inputs:
+  allurectl-version:
+    description: 'The release of allurectl to be used to upload the test results'
+    default: 'latest'
+    required: false
+  allure-endpoint:
+    description: 'The URL of Allure TestOps instance to sent test results to'
+    required: false
+  allure-token:
+    description: 'Allure TestOps API token. You need to generate this token in your profile in Allure TestOps.'
+    required: false
+  allure-project-id:
+    description: 'The ID of a project on the Allure TestOps side to which allurectl must send the test results'
+    required: false
+  github-token:
+    description: The GitHub token used to create an authenticated client
+    default: ${{ github.token }}
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: 'play'  
+  color: 'blue'
