@@ -92,7 +92,9 @@ export async function setUpTool() {
 export async function getVersion(inputVersion: string): Promise<string> {
   const github_token = core.getInput('github-token', {required: true})
 
-  const client: ClientType = github.getOctokit(github_token, {baseUrl: "https://api.github.com"})
+  const client: ClientType = github.getOctokit(github_token, {
+    baseUrl: 'https://api.github.com'
+  })
 
   if (inputVersion && inputVersion !== 'latest') {
     const response = await client.rest.repos.getReleaseByTag({
