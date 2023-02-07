@@ -33,7 +33,7 @@ where
 3. <PRJ_ID> is the ID of a project to which you are sending the test results.
 
 ### For Github Enterprise
-Depending on the scope of the Github token provided by default to the action, two tokens may be required for this action:
+Depending on the scope of the Github token provided by default to the workflow, two tokens may be required for this action:
 
 ```yaml
       - uses: allure-framework/setup-allurectl@v1
