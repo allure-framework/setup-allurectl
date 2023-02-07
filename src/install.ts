@@ -70,7 +70,7 @@ export async function testTool(cmd: string, args: string[]) {
 }
 
 export async function setUpTool() {
-  const github_token = core.getInput('github-token', {required: true})
+  const github_token = core.getInput('github-workflow-token', {required: true})
   const client: ClientType = github.getOctokit(github_token)
 
   const owner = github.context.repo.owner
@@ -91,7 +91,8 @@ export async function setUpTool() {
 
 export async function getVersion(inputVersion: string): Promise<string> {
   const github_token = core.getInput('github-token', {required: true})
-  const client: ClientType = github.getOctokit(github_token)
+
+  const client: ClientType = github.getOctokit(github_token, {baseUrl: "https://api.github.com"})
 
   if (inputVersion && inputVersion !== 'latest') {
     const response = await client.rest.repos.getReleaseByTag({
