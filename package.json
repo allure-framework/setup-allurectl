@@ -30,7 +30,7 @@
     "fs": "0.0.1-security"
   },
   "devDependencies": {
-    "@types/node": "^16.11.33",
+    "@types/node": "^18.14.6",
     "@typescript-eslint/parser": "^5.8.1",
     "@vercel/ncc": "^0.31.1",
     "eslint": "^7.32.0",
