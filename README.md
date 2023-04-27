@@ -22,7 +22,7 @@ To upload the test results to Allure TestOps please use following instructions i
       - uses: allure-framework/setup-allurectl@v1
         with: 
           allure-endpoint: https://ALURE_TESTOPS_URL
-          allure-token: ${{ secret.ALLURE_TOKEN }}
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: <PRJ_ID>
 ```
 
