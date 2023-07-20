@@ -35,7 +35,7 @@ where
 ### Use allurectl to upload the test results to Allure TestOps
 
 ```yaml
-      - run: allurect watch -- <test execution command>
+      - run: allurectl watch -- <test execution command>
         env: 
           ALLURE_RESULTS: <path/to/test-results>
 ```
