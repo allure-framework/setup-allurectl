@@ -65,7 +65,7 @@ where
           allure-endpoint: https://where.is.allure
           allure-token: ${{ secret.ALLURE_TOKEN }}
           allure-project-id: 1
-      - run: allurect watch -- ./gradlew clean test
+      - run: allurectl watch -- ./gradlew clean test
         env: 
           ALLURE_RESULTS: build/allure-results
   ```
