@@ -62,7 +62,7 @@ where
           cache: 'gradle'
       - uses: allure-framework/setup-allurectl@v1
         with: 
-          allure-endpoint: https://where.is.allure
+          allure-endpoint: https://demo.testops.cloud
           allure-token: ${{ secret.ALLURE_TOKEN }}
           allure-project-id: 1
       - run: allurectl watch -- ./gradlew clean test
