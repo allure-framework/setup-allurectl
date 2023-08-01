@@ -16,7 +16,11 @@ inputs:
     description: 'The ID of a project on the Allure TestOps side to which allurectl must send the test results'
     required: false
   github-token:
-    description: The GitHub token used to create an authenticated client
+    description: 'The GitHub token used to create an authenticated client to call https://api.github.com.'
+    default: ${{ github.token }}
+    required: false
+  github-workflow-token:
+    description: 'The GitHub token used to create an authenticated client to access Workflow metadata.'
     default: ${{ github.token }}
     required: false
 runs:
