@@ -32,6 +32,22 @@ where
 2. `${{ secret.ALLURE_TOKEN }}` is the personal API token created in your profile of Allure TestOps. You need to save API token under `/settings/secrets/actions` as a secret `ALLURE_TOKEN` in your GitHub repository and use it as the reference to the created secret – `${{ secret.ALLURE_TOKEN }}`. Having this parameter saved as plain text in the  workflow is a bad-bad-bad idea.
 3. <PRJ_ID> is the ID of a project to which you are sending the test results.
 
+### For Github Enterprise
+Depending on the scope of the Github token provided by default to the workflow, two tokens may be required for this action:
+
+```yaml
+      - uses: allure-framework/setup-allurectl@v1
+        with: 
+          allure-endpoint: https://ALURE_TESTOPS_URL
+          allure-token: ${{ secret.ALLURE_TOKEN }}
+          allure-project-id: <PRJ_ID>
+          github-token: ${{ secret.GITHUB_TOKEN }}
+          github-workflow-token: ${{ secret.GITHUB_WORKFLOW_TOKEN }}
+```
+where 
+1. `${{ secret.GITHUB_TOKEN }}` allows access to public Github
+2. `${{ secret.GITHUB_WORKFLOW_TOKEN }}` allows access to information from the current workflow in Github Enterprise
+
 ### Use allurectl to upload the test results to Allure TestOps
 
 ```yaml
