@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 20.x
@@ -31,14 +31,14 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     needs: build    
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: ./
       - run: allurectl --version
   test-dist:
     runs-on: ubuntu-latest
     needs: build    
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 20.x
