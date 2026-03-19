@@ -1,4 +1,4 @@
-import {Tool} from './const'
+import { Tool } from './const'
 
 export function getArch(arch: string): string {
   switch (arch) {

@@ -23,5 +23,5 @@ runs:
   using: 'node20'
   main: 'dist/index.js'
 branding:
-  icon: 'play'  
+  icon: 'play'
   color: 'blue'
