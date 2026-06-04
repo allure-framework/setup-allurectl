@@ -19,11 +19,11 @@ To upload the test results to Allure Testops please use following instructions i
 ### Use the action into your workflow and setup the action
 
 ```yaml
-      - uses: allure-framework/setup-allurectl@v1
-        with: 
-          allure-endpoint: https://allure.testops.url
-          allure-token: ${{ secrets.ALLURE_TOKEN }}
-          allure-project-id: <PROJECT_ID>
+- uses: allure-framework/setup-allurectl@v1
+  with:
+    allure-endpoint: https://allure.testops.url
+    allure-token: ${{ secrets.ALLURE_TOKEN }}
+    allure-project-id: <PROJECT_ID>
 ```
 
 1. `allure.testops.url` is the URL of your Allure Testops instance without additional context paths, e.g. `https://allure.testops.url`
@@ -33,9 +33,9 @@ To upload the test results to Allure Testops please use following instructions i
 ### Use allurectl to upload the test results to Allure Testops
 
 ```yaml
-      - run: allurectl watch -- <test execution command>
-        env: 
-          ALLURE_RESULTS: <path/to/test-results>
+- run: allurectl watch -- <test execution command>
+  env:
+    ALLURE_RESULTS: <path/to/test-results>
 ```
 
 where
@@ -46,12 +46,12 @@ where
 ### Complete example
 
 ```yaml
-  on: [push]
+on: [push]
 
-  jobs:
-    tests:
-      runs-on: ubuntu-latest
-      steps:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
@@ -59,26 +59,26 @@ where
           java-version: '17'
           cache: 'gradle'
       - uses: allure-framework/setup-allurectl@v1
-        with: 
+        with:
           allure-endpoint: https://demo.Testops.cloud
           allure-token: ${{ secret.ALLURE_TOKEN }}
           allure-project-id: 1
       - run: allurectl watch -- ./gradlew clean test
-        env: 
+        env:
           ALLURE_RESULTS: build/allure-results
-  ```
+```
 
 ### Managing the version of allurectl
 
 If there a need to use a specific version of allurectl (e.g. if you need to test a pre-release version), you can use additional configuration parameter `allurectl-version`.
 
 ```yaml
-      - uses: allure-framework/setup-allurectl@v1
-        with: 
-          allure-endpoint: https://ALURE_Testops_URL
-          allure-token: ${{ secrets.ALLURE_TOKEN }}
-          allure-project-id: <PRJ_ID>
-          allurectl-version: 2.15.4
+- uses: allure-framework/setup-allurectl@v1
+  with:
+    allure-endpoint: https://ALURE_Testops_URL
+    allure-token: ${{ secrets.ALLURE_TOKEN }}
+    allure-project-id: <PRJ_ID>
+    allurectl-version: 2.15.4
 ```
 
 The information on releases can be found in the releases section of [allurectl repository.](https://github.com/allure-framework/allurectl/releases)

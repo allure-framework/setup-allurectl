@@ -20,8 +20,8 @@ inputs:
     default: ${{ github.token }}
     required: false
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
 branding:
-  icon: 'play'  
+  icon: 'play'
   color: 'blue'

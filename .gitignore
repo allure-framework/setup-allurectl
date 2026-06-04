@@ -1,5 +1,8 @@
 # Dependencies
 node_modules
 
-# Project 
+# Project
 lib
+
+# IDEA
+.idea/*

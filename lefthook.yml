@@ -1,0 +1,11 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - name: oxlint
+      always_run: true
+      run: npm run lint:fix
+      stage_fixed: true
+    - name: oxfmt
+      always_run: true
+      run: npm run format:fix
+      stage_fixed: true
