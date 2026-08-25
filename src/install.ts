@@ -54,7 +54,7 @@ export async function setUpTool(): Promise<void> {
   addInputVariableToEnv('allure-project-id', 'ALLURE_PROJECT_ID')
   exportVariable(
     'ALLURE_JOB_UID',
-    `${owner}/${repo}/actions/workflows/${data.data.workflow_id}`
+    `${owner}/${repo}/actions/workflows/${data.data.workflow_id}/${data.data.run_attempt}`
   )
 }
 
